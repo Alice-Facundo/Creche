@@ -528,7 +528,7 @@ async function carregarEquipe() {
     container.innerHTML = "<p>Carregando equipe...</p>";
 
     try {
-        const res = await fetch("https://crecheapi.onrender.com/professores");
+        const res = await fetch("https://crecheapi.onrender.com/professor/get_all");
         const equipe = await res.json();
 
         container.innerHTML = "";
