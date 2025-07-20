@@ -1,0 +1,161 @@
+/* Login/Admin Page Styles */
+
+.admin-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-12) var(--spacing-4);
+}
+
+.admin-container {
+    max-width: 400px;
+    width: 100%;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: var(--spacing-8);
+}
+
+.admin-icon {
+    width: 4rem;
+    height: 4rem;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-4);
+    color: var(--white);
+}
+
+.admin-header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gray-900);
+    margin-bottom: var(--spacing-2);
+}
+
+.admin-header p {
+    color: var(--gray-600);
+}
+
+.admin-form {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-8);
+    box-shadow: var(--shadow-xl);
+    margin-bottom: var(--spacing-8);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-6);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: 500;
+    color: var(--gray-900);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4) var(--spacing-3) 2.5rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius);
+    background: var(--white);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: var(--spacing-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-400);
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.password-toggle {
+    position: absolute;
+    right: var(--spacing-3);
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+}
+
+.btn-admin-login {
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-3) var(--spacing-6);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.btn-admin-login:hover {
+    background: color-mix(in srgb, var(--accent) 90%, black);
+}
+
+.admin-features {
+    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-6);
+    border-top: 1px solid var(--gray-200);
+    text-align: center;
+}
+
+.admin-features p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-4);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-3);
+}
+
+.feature-item {
+    border-radius: var(--radius);
+    padding: var(--spacing-2);
+    font-size: 0.75rem;
+}
+
+.feature-item.primary { background: var(--primary-light); }
+.feature-item.success { background: var(--success-light); }
+.feature-item.warning { background: var(--warning-light); }
+.feature-item.accent { background: var(--accent-light); }
+
+.feature-item span {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-1);
+}

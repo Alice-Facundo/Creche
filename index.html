@@ -3,395 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creche Feliz - Cuidado e Educação Infantil</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>CEI Marcos José Cavalcante Sampaio - Cuidado e Educação Infantil</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="header-top">
-            <div class="container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i data-lucide="phone"></i>
-                        <span>(11) 99999-9999</span>
-                    </div>
-                    <div class="contact-item">
-                        <i data-lucide="mail"></i>
-                        <span>contato@crechefeliz.com.br</span>
-                    </div>
-                </div>
-                <div class="hours">
-                    <span>Horário de Funcionamento: Seg-Mex 7h às 18h</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="header-main">
-            <div class="container">
-                <div class="logo" onclick="navigateTo('home')">
-                    <div class="logo-icon">CF</div>
-                    <div class="logo-text">
-                        <h1>Creche Feliz</h1>
-                        <p>Cuidado e Educação Infantil</p>
-                    </div>
-                </div>
-                
-                <nav class="nav-desktop">
-                    <button onclick="navigateTo('home')" class="nav-link" data-page="home">Início</button>
-                    <button onclick="navigateTo('infraestrutura')" class="nav-link" data-page="infraestrutura">Infraestrutura</button>
-                    <button onclick="navigateTo('equipe')" class="nav-link" data-page="equipe">Equipe</button>
-                    <button onclick="navigateTo('cardapio')" class="nav-link" data-page="cardapio">Cardápio</button>
-                    <a href="#contato" class="nav-link">Contato</a>
-                </nav>
-                
-                <div class="header-actions">
-                    <button class="btn-admin" onclick="navigateTo('admin')">
-                        <i data-lucide="lock"></i>
-                        Admin
-                    </button>
-                    <button class="btn-primary">Agende uma Visita</button>
-                    <button class="btn-mobile-menu">
-                        <i data-lucide="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <main id="main-content">
-        <div id="page-home" class="page active">
-            <section class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <div class="hero-text">
-                            <h1>Cuidado e <span class="text-primary">Educação</span><br>para Crianças de 3 a 5 anos</h1>
-                            <p>Nossa creche oferece um ambiente seguro, acolhedor e estimulante onde cada criança pode se desenvolver através de brincadeiras, cuidado individualizado e atividades pedagógicas adequadas para a primeira infância.</p>
-
-                            
-                            <div class="stats-grid">
-                                <div class="stat-item">
-                                    <i data-lucide="users" class="stat-icon primary"></i>
-                                    <div class="stat-number">80+</div>
-                                    <div class="stat-label">Crianças Felizes</div>
-                                </div>
-                                <div class="stat-item">
-                                    <i data-lucide="graduation-cap" class="stat-icon success"></i>
-                                    <div class="stat-number">15+</div>
-                                    <div class="stat-label">Educadoras</div>
-                                </div>
-                                <div class="stat-item">
-                                    <i data-lucide="heart" class="stat-icon accent"></i>
-                                    <div class="stat-number">10</div>
-                                    <div class="stat-label">Anos de Cuidado</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="hero-image">
-                            <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Crianças brincando na creche">
-                            <div class="floating-card">
-                                <div class="card-icon">✓</div>
-                                <div class="card-content">
-                                    <div class="card-title">Ambiente Seguro</div>
-                                    <div class="card-text">Monitoramento 24h e cuidado especializado</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="programas">
-                <div class="container">
-                    <div class="section-header">
-                        <div class="badge accent">Nossos Programas</div>
-                        <h2>Educação Infantil para <span class="text-success">cada idade</span></h2>
-                        <p>Oferecemos programas educacionais especialmente desenvolvidos para cada faixa etária de 3 a 5 anos, respeitando as características e necessidades de cada fase do desenvolvimento infantil.</p>
-                    </div>
-                    
-                    <div class="programas-grid">
-                        <div class="programa-card">
-                            <div class="programa-image">
-                                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Maternal">
-                                <div class="badge-overlay primary">Adaptação</div>
-                                <div class="color-bar primary"></div>
-                            </div>
-                            <div class="programa-content">
-                                <h3>Maternal (3 anos)</h3>
-                                <div class="programa-info">
-                                    <div class="info-item">
-                                        <i data-lucide="calendar"></i>
-                                        <span><strong>Idade:</strong> 3 anos</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <i data-lucide="clock"></i>
-                                        <span><strong>Período:</strong> Meio período ou Integral</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <i data-lucide="users"></i>
-                                        <span><strong>Turma:</strong> 8-10 por turma</span>
-                                    </div>
-                                </div>
-                                <p>Desenvolvimento da autonomia e socialização através de atividades lúdicas, brincadeiras dirigidas e cuidados especializados para esta faixa etária.</p>
-                                <button class="btn-outline primary">Saiba Mais</button>
-                            </div>
-                        </div>
-                        
-                        <div class="programa-card">
-                            <div class="programa-image">
-                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pré I">
-                                <div class="badge-overlay success">Mais Popular</div>
-                                <div class="color-bar success"></div>
-                            </div>
-                            <div class="programa-content">
-                                <h3>Pré I (4 anos)</h3>
-                                <div class="programa-info">
-                                    <div class="info-item">
-                                        <i data-lucide="calendar"></i>
-                                        <span><strong>Idade:</strong> 4 anos</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <i data-lucide="clock"></i>
-                                        <span><strong>Período:</strong> Meio período ou Integral</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <i data-lucide="users"></i>
-                                        <span><strong>Turma:</strong> 10-12 por turma</span>
-                                    </div>
-                                </div>
-                                <p>Preparação para a alfabetização com atividades de coordenação motora, reconhecimento de letras e números, e desenvolvimento da linguagem oral.</p>
-                                <button class="btn-outline success">Saiba Mais</button>
-                            </div>
-                        </div>
-                        
-                        <div class="programa-card">
-                            <div class="programa-image">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pré II">
-                                <div class="badge-overlay accent">Preparatório</div>
-                                <div class="color-bar accent"></div>
-                            </div>
-                            <div class="programa-content">
-                                <h3>Pré II (5 anos)</h3>
-                                <div class="programa-info">
-                                    <div class="info-item">
-                                        <i data-lucide="calendar"></i>
-                                        <span><strong>Idade:</strong> 5 anos</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <i data-lucide="clock"></i>
-                                        <span><strong>Período:</strong> Meio período ou Integral</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <i data-lucide="users"></i>
-                                        <span><strong>Turma:</strong> 12-14 por turma</span>
-                                    </div>
-                                </div>
-                                <p>Preparação para o ensino fundamental com iniciação à alfabetização, conceitos matemáticos básicos e desenvolvimento da independência.</p>
-                                <button class="btn-outline accent">Saiba Mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="atividades-cta">
-                        <button class="btn-primary">Ver Programação Completa</button>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-       <!-- Infraestrutura Page -->
-<section id="page-infraestrutura" class="page">
-  <div class="page-content">
-    <div class="container">
-      <div class="page-header">
-        <div class="badge primary">Nossa Infraestrutura</div>
-        <h1>Ambientes <span class="text-primary">Seguros</span> e Acolhedores</h1>
-        <p>Nossa creche foi projetada pensando no bem-estar, segurança e desenvolvimento integral das crianças, oferecendo espaços adequados para cada atividade do dia a dia.</p>
-      </div>
-      <div id="infraestrutura-grid" class="diferenciais-grid"></div>
-    </div>
-  </div>
-</section>
-
-<!-- Equipe Page -->
-<section id="page-equipe" class="page">
-  <div class="page-content">
-    <div class="container">
-      <div class="page-header">
-        <div class="badge success">Nossa Equipe</div>
-        <h1>Profissionais <span class="text-success">Qualificados</span> e Carinhosos</h1>
-        <p>Nossa equipe é formada por profissionais especializados em educação infantil, comprometidos com o desenvolvimento integral e o bem-estar de cada criança.</p>
-      </div>
-      <div id="equipe-grid" class="diferenciais-grid"></div>
-    </div>
-  </div>
-</section>
-
-
-        <div id="page-cardapio" class="page">
-            <div class="page-content">
-                <div class="container">
-                    <div class="page-header">
-                        <div class="badge success">Cardápio Semanal</div>
-                        <h1>Alimentação <span class="text-success">Nutritiva</span> e Saborosa</h1>
-                        <p>Nosso cardápio é elaborado por nutricionista especializada em alimentação infantil, garantindo refeições balanceadas e adequadas para cada faixa etária.</p>
-                    </div>
-                    <div class="coming-soon">
-                        <h3>Página em Construção</h3>
-                        <p>Em breve você verá nosso cardápio semanal completo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-admin" class="page">
-            <div class="admin-page">
-                <div class="admin-container">
-                    <div class="admin-header">
-                        <div class="admin-icon">
-                            <i data-lucide="lock"></i>
-                        </div>
-                        <h1>Acesso Administrativo</h1>
-                        <p>Entre com suas credenciais para acessar o painel</p>
-                    </div>
-                    
-                    <div class="admin-form">
-                        <form id="loginForm">
-                            <div class="form-group">
-                                <label for="usuario">Usuário</label>
-                                <div class="input-wrapper">
-                                    <i data-lucide="user"></i>
-                                    <input type="text" id="usuario" placeholder="Digite seu usuário" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="senha">Senha</label>
-                                <div class="input-wrapper">
-                                    <i data-lucide="lock"></i>
-                                    <input type="password" id="senha" placeholder="Digite sua senha" required>
-                                    <button type="button" class="password-toggle">
-                                        <i data-lucide="eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <button type="submit" class="btn-admin-login">Entrar no Sistema</button>
-                        </form>
-                        
-                        <div class="admin-features">
-                            <p>Funcionalidades do Painel:</p>
-                            <div class="features-grid">
-                                <div class="feature-item primary">
-                                    <span>👥</span>
-                                    <p>Gestão de Alunos</p>
-                                </div>
-                                <div class="feature-item success">
-                                    <span>📊</span>
-                                    <p>Relatórios</p>
-                                </div>
-                                <div class="feature-item warning">
-                                    <span>🍎</span>
-                                    <p>Editar Cardápio</p>
-                                </div>
-                                <div class="feature-item accent">
-                                    <span>📅</span>
-                                    <p>Calendário</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer id="footer" class="footer">
+<!-- =====================================================================HEADER================================================================================ -->
+<header class="header">        
+    <div class="header-main">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <div class="logo-icon">CF</div>
-                        <div>
-                            <h3>Creche Feliz</h3>
-                            <p>Cuidado e Educação Infantil</p>
-                        </div>
-                    </div>
-                    <p>Há 10 anos oferecendo cuidado e educação de qualidade com carinho, segurança e metodologias adequadas para o desenvolvimento integral das crianças de 3 a 5 anos.</p>
-                    <div class="social-links">
-                        <button class="social-btn facebook">
-                            <i data-lucide="facebook"></i>
-                        </button>
-                        <button class="social-btn instagram">
-                            <i data-lucide="instagram"></i>
-                        </button>
-                        <button class="social-btn youtube">
-                            <i data-lucide="youtube"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Links Rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="#inicio" onclick="navigateTo('home')">Início</a></li>
-                        <li><a href="#" onclick="navigateTo('infraestrutura')">Infraestrutura</a></li>
-                        <li><a href="#" onclick="navigateTo('equipe')">Equipe</a></li>
-                        <li><a href="#" onclick="navigateTo('programas')">Programas</a></li>
-                        <li><a href="#">Portal do Aluno</a></li>
-                        <li><a href="#">Trabalhe Conosco</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <div class="contact-item">
-                        <i data-lucide="map-pin" class="primary"></i>
-                        <div>
-                            <p>Rua das Flores, 123<br>
-                            Jardim Primavera - São Paulo/SP<br>
-                            CEP: 01234-567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i data-lucide="phone" class="success"></i>
-                        <a href="tel:+5511999999999">(11) 99999-9999</a>
-                    </div>
-                    <div class="contact-item">
-                        <i data-lucide="mail" class="accent"></i>
-                        <a href="mailto:contato@crechefeliz.com.br">contato@crechefeliz.com.br</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Horários</h4>
-                    <div class="hours-info">
-                        <div class="hours-item">
-                            <i data-lucide="clock" class="warning"></i>
-                            <div>
-                                <p><strong>Funcionamento:</strong></p>
-                                <p>Segunda a Sexta: 7h às 18h</p>
-                                <p>Meio período: 7h às 12h ou 13h às 18h</p>
-                                <p>Período integral: 7h às 18h</p>
-                            </div>
-                        </div>
-                        <div class="hours-item">
-                            <p><strong>Atendimento:</strong></p>
-                            <p>Segunda a Sexta: 8h às 17h</p>
-                            <p>Sábado: 8h às 12h (agendamento)</p>
-                        </div>
-                    </div>
+            
+            <!-- ===========================LOGO=============================-->
+            <div class="logo" onclick="navigateTo('home')">
+                <div class="logo-icon">CEI</div>
+                <div class="logo-text">
+                    <h1>CEI Marcos José Cavalcante Sampaio</h1>
+                    <p>Cuidado e Educação Infantil</p>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>© 2025 Creche Feliz. Todos os direitos reservados. Desenvolvido com ❤️ para a educação infantil de qualidade.</p>
+            <!-- ===========================NAV BAR=============================-->
+            <nav class="nav-desktop">
+                <button onclick="navigateTo('home')" class="nav-link" data-page="home">Início</button>
+                <button onclick="navigateTo('infraestrutura')" class="nav-link" data-page="infraestrutura">Infraestrutura</button>
+                <button onclick="navigateTo('equipe')" class="nav-link" data-page="equipe">Equipe</button>
+                <button onclick="navigateTo('cardapio')" class="nav-link" data-page="cardapio">Cardápio</button>
+                <button onclick="navigateTo('contato')" class="nav-link" data-page="contato">Contato</button>
+            </nav>
+            
+            <!-- ===========================BOTAO LOGIN=============================-->
+            <div class="header-actions">
+                <button class="btn-admin" onclick="navigateTo('admin')">
+                    <i data-lucide="lock"></i>
+                    Admin
+                </button>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<!-- =====================================================================MAIN================================================================================ -->
+<main id="main-content">
+
+    <div id="page-home" class="page active">
+
+        <!-- ===========================APRESENTACAO COM IMAGEM=============================-->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+
+                    <!-- ===========================INFOS LATERAIS=============================-->
+                    <div class="hero-text">
+                        <h1>Cuidado e <span class="text-primary">Educação</span><br>para Crianças de 3 a 5 anos</h1>
+                        <p>Nossa creche oferece um ambiente seguro, acolhedor e estimulante onde cada criança pode se desenvolver através de brincadeiras, cuidado individualizado e atividades pedagógicas adequadas para a primeira infânc</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <i data-lucide="users" class="stat-icon primary"></i>
+                                <div class="stat-number">80+</div>
+                                <div class="stat-label">Crianças Felizes</div>
+                            </div>
+                            <div class="stat-item">
+                                <i data-lucide="graduation-cap" class="stat-icon success"></i>
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Educadoras</div>
+                            </div>
+                            <div class="stat-item">
+                                <i data-lucide="heart" class="stat-icon accent"></i>
+                                <div class="stat-number">10</div>
+                                <div class="stat-label">Anos de Cuidado</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ===========================IMAGEM=============================-->
+                    <div class="hero-image">
+                        <img src="imgs/frenteCreche.jpg" alt="Crianças brincando na creche">
+                        <div class="floating-card">
+                            <div class="card-icon">✓</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>      
+        </section>
+
+        <!-- ===========================PROGRAMAS=============================-->
+        <section class="programas">
+            <div class="container">
+                
+                <!-- ===========================CABEÇALHO PROGRAMAS=============================-->
+                <div class="section-header">
+                    <div class="badge accent">Nossos Programas</div>
+                    <h2>Educação Infantil para <span class="text-success">cada idade</span></h2>
+                    <p>Oferecemos programas educacionais especialmente desenvolvidos para cada faixa etária de 3 a 5 anos, respeitando as características e necessidades de cada fase do desenvolvimento infantil.</p>
+                </div>
+                
+                <!-- ===========================PROGRAMAS GRID=============================-->
+                <div class="programas-grid">
+                    <div class="programa-card">
+
+                        <!-- ===========================CARD 1=============================-->
+                        <div class="programa-image">
+                            <img src="imgs/criancaDesenhando.jpeg" alt="Maternal">
+                            <div class="badge-overlay primary">Adaptação</div>
+                            <div class="color-bar primary"></div>
+                        </div>
+                        <div class="programa-content">
+                            <h3>Maternal (3 anos)</h3>
+                            <div class="programa-info">
+                                <div class="info-item">
+                                    <i data-lucide="calendar"></i>
+                                    <span><strong>Idade:</strong> 3 anos</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="clock"></i>
+                                    <span><strong>Período:</strong> Meio período ou Integral</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="users"></i>
+                                    <span><strong>Turma:</strong> 8-10 por turma</span>
+                                </div>
+                            </div>
+                            <p>Desenvolvimento da autonomia e socialização através de atividades lúdicas, brincadeiras dirigidas e cuidados especializados para esta faixa etária.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ===========================CARD 2=============================-->
+                    <div class="programa-card">
+                        <div class="programa-image">
+                            <img src="imgs/criancatinta.jpg" alt="Pré I">
+                            <div class="badge-overlay success">Mais Popular</div>
+                            <div class="color-bar success"></div>
+                        </div>
+                        <div class="programa-content">
+                            <h3>Pré I (4 anos)</h3>
+                            <div class="programa-info">
+                                <div class="info-item">
+                                    <i data-lucide="calendar"></i>
+                                    <span><strong>Idade:</strong> 4 anos</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="clock"></i>
+                                    <span><strong>Período:</strong> Meio período ou Integral</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="users"></i>
+                                    <span><strong>Turma:</strong> 10-12 por turma</span>
+                                </div>
+                            </div>
+                            <p>Preparação para a alfabetização com atividades de coordenação motora, reconhecimento de letras e números, e desenvolvimento da linguagem oral.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ===========================CARD 3=============================-->
+                    <div class="programa-card">
+                        <div class="programa-image">
+                            <img src="imgs/criancaDuvida.jpg" alt="Pré II">
+                            <div class="badge-overlay accent">Preparatório</div>
+                            <div class="color-bar accent"></div>
+                        </div>
+                        <div class="programa-content">
+                            <h3>Pré II (5 anos)</h3>
+                            <div class="programa-info">
+                                <div class="info-item">
+                                    <i data-lucide="calendar"></i>
+                                    <span><strong>Idade:</strong> 5 anos</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="clock"></i>
+                                    <span><strong>Período:</strong> Meio período ou Integral</span>
+                                </div>
+                                <div class="info-item">
+                                    <i data-lucide="users"></i>
+                                    <span><strong>Turma:</strong> 12-14 por turma</span>
+                                </div>
+                            </div>
+                            <p>Preparação para o ensino fundamental com iniciação à alfabetização, conceitos matemáticos básicos e desenvolvimento da independência.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<!-- =====================================================================LOGIN ADMIN================================================================================ -->
+    <div id="page-admin" class="page">
+        <div class="admin-page">
+            <div class="admin-container">
+
+                <div class="admin-header">
+                    <div class="admin-icon">
+                        <i data-lucide="lock"></i>
+                    </div>
+                    <h1>Acesso Administrativo</h1>
+                    <p>Entre com suas credenciais para acessar o painel</p>
+                </div>
+                
+                <div class="admin-form">
+
+                    <!-- ===========================FORMS=============================-->
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="usuario">Usuário</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="user"></i>
+                                <input type="text" id="usuario" placeholder="Digite seu usuário" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="lock"></i>
+                                <input type="password" id="senha" placeholder="Digite sua senha" required>
+                                <button type="button" class="password-toggle">
+                                    <i data-lucide="eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-admin-login">Entrar no Sistema</button>
+                    </form>
+                    
+                    <!-- ===========================FUNCIONALIDADES=============================-->
+                    <div class="admin-features">
+                        <p>Funcionalidades do Painel:</p>
+                        <div class="features-grid">
+                            <div class="feature-item primary">
+                                <span>🧑‍🎓</span>
+                                <p>Gestão de Alunos</p>
+                            </div>
+                            <div class="feature-item primary">
+                                <span>🧑‍🏫</span>
+                                <p>Gestão de Professores</p>
+                            </div>
+                            <div class="feature-item warning">
+                                <span>🍎</span>
+                                <p>Editar Cardápio</p>
+                            </div>
+                            <div class="feature-item warning">
+                                <span>📱</span>
+                                <p>Editar contato</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
+    
+<!-- =====================================================================PAGINAS SECUNDÁRIAS================================================================================ -->
+    <div id="page-cardapio" class="page"></div>
+    
+    <div id="page-equipe" class="page"></div>
+    
+    <div id="page-infraestrutura" class="page"></div>
+    
+    <div id="page-contato" class="page"></div>
 
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script src="script.js"></script>
+</main>
+
+<!-- =====================================================================FOOTER================================================================================ -->
+<footer id="footer" class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+
+                <!-- ==============================LOGO======================================= -->
+                <div class="footer-logo">
+                    <div class="logo-icon">CF</div>
+                    <div>
+                        <h3>CEI Marcos José Cavalcante Sampaio </h3>
+                        <p>Cuidado e Educação Infantil</p>
+                    </div>
+                </div>
+
+                <p>Há 10 anos oferecendo cuidado e educação de qualidade com carinho, segurança e metodologias adequadas para o desenvolvimento integral das crianças de 3 a 5 anos.</p>
+
+                <!-- ==============================SOCIAL LINKS======================================= -->
+                <div class="social-links">
+                    <button class="social-btn instagram">
+                        <i data-lucide="instagram"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- ==============================LINKS RAPIDOS======================================= -->
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio" onclick="navigateTo('home')">Início</a></li>
+                    <li><a href="#" onclick="navigateTo('infraestrutura')">Infraestrutura</a></li>
+                    <li><a href="#" onclick="navigateTo('equipe')">Equipe</a></li>
+                    <li><a href="#" onclick="navigateTo('contato')">Contato</a></li>
+                </ul>
+            </div>
+            
+            <!-- ==============================CONTATO======================================= -->
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <div class="contact-item">
+                    <i data-lucide="map-pin" class="primary"></i>
+                    <div>
+                        <p>Rua das Flores, 123<br>
+                        Jardim Primavera - São Paulo/SP<br>
+                        CEP: 01234-567</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="phone" class="success"></i>
+                    <a href="tel:+5511999999999">(11) 99999-9999</a>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="mail" class="accent"></i>
+                    <a href="mailto:contato@crechefeliz.com.br">contato@crechefeliz.com.br</a>
+                </div>
+            </div>
+            
+            <!-- ==============================HORARIOS======================================= -->
+            <div class="footer-section">
+                <h4>Horários</h4>
+                <div class="hours-info">
+                    <div class="hours-item">
+                        <i data-lucide="clock" class="warning"></i>
+                        <div>
+                            <p><strong>Funcionamento:</strong></p>
+                            <p>Segunda a Sexta: 7h às 18h</p>
+                            <p>Meio período: 7h às 12h ou 13h às 18h</p>
+                            <p>Período integral: 7h às 18h</p>
+                        </div>
+                    </div>
+                    <div class="hours-item">
+                        <p><strong>Atendimento:</strong></p>
+                        <p>Segunda a Sexta: 8h às 17h</p>
+                        <p>Sábado: 8h às 12h (agendamento)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- =====================================================================SCRIPT================================================================================ -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<script src="script.js"></script>
+
+<script>
+    // Script para carregar conteúdo dinâmico das páginas
+    document.addEventListener('DOMContentLoaded', () => {
+
+        /**
+        @param {string} pageName 
+            */
+        const loadPage = (pageName) => {
+            const filePath = `partials/${pageName}.html`;
+            const containerId = `page-${pageName}`;
+            
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro na rede ao tentar carregar o arquivo: ${filePath}`);
+                    }
+                    return response.text();
+                })
+                .then(htmlContent => {
+                    const container = document.getElementById(containerId);
+                    if (container) {
+                        container.innerHTML = htmlContent;
+                    } else {
+                        console.warn(`Elemento com ID '${containerId}' não foi encontrado no DOM.`);
+                    }
+                })
+                .catch(error => {
+                    console.error(`Falha ao carregar a página '${pageName}':`, error);
+                    const container = document.getElementById(containerId);
+                    if (container) {
+                        container.innerHTML = `<p style="text-align: center; padding: 40px; color: red;">Desculpe, não foi possível carregar o conteúdo de '${pageName}' no momento.</p>`;
+                    }
+                });
+        };
+
+        // Carrega o conteúdo para cada página
+        loadPage('equipe');
+        loadPage('cardapio');
+        loadPage('infraestrutura');
+        loadPage('contato');
+
+    });
+
+</script>
 </body>
 </html>
