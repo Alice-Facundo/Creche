@@ -278,69 +278,99 @@ window.addEventListener('load', function() {
 
 // =================================================== API =======================================================================
 
-// ================================ INFRAESTRUTURA =============================================
+// ================================ INFRAESTRUTURA =================================
 async function carregarInfraestrutura() {
     const container = document.getElementById("infraestrutura-grid");
-    container.innerHTML = "<p>Carregando...</p>";
+    if (!container) return;
+
+    container.innerHTML = "<p>Carregando fotos da infraestrutura...</p>";
+
     try {
-        const res = await fetch("https://crecheapi.onrender.com/infraestrutura");
-        const imagens = await res.json();
+        const resIds = await fetch("https://crecheapi.onrender.com/creche/get_id_fotos");
+        const ids = await resIds.json();
+
+        // Mapeia os IDs para buscar cada foto como um arquivo (blob)
+        const fotoPromises = ids.map(id =>
+            fetch(`https://crecheapi.onrender.com/creche/get_foto_creche/${id}`)
+                .then(res => res.blob())
+                .then(blob => URL.createObjectURL(blob)) // Cria uma URL local para a imagem
+        );
+
+        const urlsDasFotos = await Promise.all(fotoPromises);
+        
         container.innerHTML = "";
-        imagens.forEach(imagem => {
+        urlsDasFotos.forEach(url => {
             const card = document.createElement("div");
             card.className = "diferencial-card";
             card.innerHTML = `
                 <div class="programa-image">
-                    <img src="${imagem.url}" alt="Imagem infraestrutura" style="border-radius: var(--radius-xl); width: 100%; height: 200px; object-fit: cover;">
+                    <img src="${url}" alt="Foto da infraestrutura" style="border-radius: var(--radius-xl); width: 100%; object-fit: cover;">
                 </div>
-                <h3>${imagem.nome || "Espaço"}</h3>
+                <h3>Nosso Espaço</h3>
             `;
             container.appendChild(card);
         });
+
     } catch (e) {
-        container.innerHTML = "<p>Erro ao carregar infraestrutura.</p>";
-        console.error(e);
+        container.innerHTML = "<p style='color: red;'>Erro ao carregar a infraestrutura.</p>";
+        console.error("Erro ao carregar infraestrutura:", e);
     }
 }
 
-// ================================ EQUIPE =============================================
-async function carregarEquipe() {
-    const container = document.getElementById("equipe-grid");
-    container.innerHTML = "<p>Carregando equipe...</p>";
+// ================================ CARDAPIO =============================================
+async function carregarCardapio() {
+    const container = document.getElementById("cardapio-container");
+    // Mensagem inicial de carregamento
+    container.innerHTML = "<p>Carregando cardápio mais recente...</p>";
+
     try {
-        const res = await fetch("https://crecheapi.onrender.com/professor/get_all");
-        const equipe = await res.json();
-        container.innerHTML = "";
-        equipe.forEach(pessoa => {
-            const card = document.createElement("div");
-            card.className = "diferencial-card";
-            card.innerHTML = `
-                <div class="programa-image">
-                    <img src="${pessoa.foto}" alt="Foto do professor" style="border-radius: var(--radius-xl); width: 100%; height: 200px; object-fit: cover;">
-                </div>
-                <h3>${pessoa.nome}</h3>
-                <p><strong>Cargo:</strong> ${pessoa.cargo}</p>
-                <p>${pessoa.descricao}</p>
-                <p><strong>Email:</strong> <a href="mailto:${pessoa.email}">${pessoa.email}</a></p>
-                <p><strong>Telefone:</strong> <a href="tel:${pessoa.telefone}">${pessoa.telefone}</a></p>
-            `;
-            container.appendChild(card);
-        });
+        // 1. Pega os metadados do cardápio mais recente para obter o ID
+        const resMeta = await fetch("https://crecheapi.onrender.com/cardapio/get_recente");
+        if (!resMeta.ok) throw new Error('Falha ao buscar metadados do cardápio.');
+        const cardapioMeta = await resMeta.json();
+        const cardapioId = cardapioMeta.id;
+        
+        // 2. Busca o arquivo PDF usando o ID obtido
+        const resPdf = await fetch(`https://crecheapi.onrender.com/cardapio/get_pdf_cardapio/${cardapioId}`);
+        if (!resPdf.ok) throw new Error('Falha ao carregar o arquivo PDF.');
+
+        // 3. Converte a resposta em um Blob (arquivo binário)
+        const pdfBlob = await resPdf.blob();
+
+        // 4. Cria uma URL temporária para o Blob
+        const pdfUrl = URL.createObjectURL(pdfBlob);
+
+        // 5. Cria um elemento <iframe> para exibir o PDF e o insere no container
+        container.innerHTML = `
+            <iframe 
+                src="${pdfUrl}" 
+                width="100%" 
+                height="800px" 
+                style="border: 1px solid #ccc; border-radius: 8px;"
+                title="Cardápio Semanal">
+            </iframe>
+        `;
+        
     } catch (e) {
-        container.innerHTML = "<p>Erro ao carregar equipe.</p>";
-        console.error(e);
+        // Exibe uma mensagem de erro clara no container
+        container.innerHTML = "<p style='color: red; text-align: center;'>Erro ao carregar o cardápio. Por favor, tente novamente mais tarde.</p>";
+        console.error("Erro detalhado:", e);
     }
 }
+
 
 // =================== OBSERVERS ===================
 const observer = new MutationObserver(mutations => {
     mutations.forEach(m => {
         if (m.target.id === 'page-infraestrutura' && m.target.classList.contains('active')) carregarInfraestrutura();
         if (m.target.id === 'page-equipe' && m.target.classList.contains('active')) carregarEquipe();
+        if (m.target.id === 'page-cardapio' && m.target.classList.contains('active')) carregarCardapio();
     });
 });
 observer.observe(document.getElementById('page-infraestrutura'), { attributes: true });
 observer.observe(document.getElementById('page-equipe'), { attributes: true });
+observer.observe(document.getElementById('page-cardapio'), { attributes: true });
+
 
 // =================== EXPORTS GLOBAIS ===================
 window.navigateTo = navigateTo;

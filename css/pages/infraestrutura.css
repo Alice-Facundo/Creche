@@ -58,3 +58,23 @@
     font-size: 0.95rem;
     margin-bottom: var(--spacing-2);
 }
+
+
+#infraestrutura-grid {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#infraestrutura-grid .diferencial-card img {
+    height: 500px; 
+    border-radius: var(--radius-xl);
+}
+
+#infraestrutura-grid .diferencial-card h3 {
+    text-align: center;
+    margin-top: var(--spacing-4);
+    font-size: 1.125rem;
+    color: var(--gray-700);
+}

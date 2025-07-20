@@ -72,15 +72,21 @@ body {
     cursor: pointer;
 }
 
-.logo-icon {
-    background: var(--primary);
-    color: var(--white);
-    padding: var(--spacing-2) var(--spacing-4);
-    border-radius: var(--radius-lg);
-    font-weight: bold;
-    font-size: 1.25rem;
-    margin-right: var(--spacing-3);
+.logo-image {
+    width: 4rem; /* Ajuste o tamanho conforme necessário */
+    height: 4rem; /* Garante que o contêiner seja quadrado */
+    margin-right: var(--spacing-3); /* Espaçamento à direita */
+    border-radius: var(--radius-lg); /* Aplica as bordas arredondadas */
+    overflow: hidden; /* Garante que a imagem não ultrapasse as bordas */
+    flex-shrink: 0; /* Impede que a imagem encolha */
 }
+
+.logo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre todo o espaço sem distorcer a imagem */
+}
+
 
 .logo-text h1 {
     font-size: 1.25rem;
