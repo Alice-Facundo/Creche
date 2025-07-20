@@ -159,3 +159,16 @@
     font-size: 1rem;
     margin-bottom: var(--spacing-1);
 }
+
+.btn-admin.logged-in {
+    border-color: var(--success) !important;
+    color: var(--success) !important;
+    background-color: var(--success-light) !important;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-admin.logged-in:hover {
+    background-color: var(--success) !important;
+    color: var(--white) !important;
+}

@@ -37,11 +37,13 @@
             
             <!-- ===========================BOTAO LOGIN=============================-->
             <div class="header-actions">
-                <button class="btn-admin" onclick="navigateTo('admin')">
-                    <i data-lucide="lock"></i>
-                    Admin
-                </button>
-            </div>
+            <!-- O botão e seus elementos internos agora têm IDs -->
+            <button id="btn-header-admin" class="btn-admin" onclick="handleHeaderAdminClick()">
+                <i id="btn-header-admin-icon" data-lucide="lock"></i>
+                <span id="btn-header-admin-text">Admin</span>
+            </button>
+            <!-- ... outros botões como o de menu mobile ... -->
+        </div>
 
         </div>
     </div>
@@ -228,7 +230,7 @@
                             </div>
                         </div>
                         
-                        <button type="submit" class="btn-admin-login">Entrar no Sistema</button>
+                        <button type="submit" id="btn-login" class="btn-admin-login">Entrar no Sistema</button>
                     </form>
                     
                     <!-- ===========================FUNCIONALIDADES=============================-->
@@ -342,7 +344,7 @@
   lucide.createIcons();
 </script>
 
-<script src="script.js"></script>
+<script type="module" src="js/main.js"></script>
 
 <script>
     // Script para carregar conteúdo dinâmico das páginas
