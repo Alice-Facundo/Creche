@@ -29,7 +29,7 @@ function updateActiveNavigation(page) {
 function updateFooterVisibility(page) {
     const footer = document.getElementById('footer');
     if (footer) {
-        // Mostra o footer apenas se a página for 'home'
+        // Mostra o footer somente em home
         footer.style.display = (page === 'home') ? 'block' : 'none';
     }
 }
@@ -110,6 +110,9 @@ function debounce(func, wait) {
 
 function isMobile() {
     return window.innerWidth <= 768;
+}
+
+function adjustLayoutForViewport() {
 }
 
 // =================== API ===================
@@ -244,15 +247,11 @@ async function carregarDadosFooter() {
     }
 }
 
-// =================== PLACEHOLDERS ===================
-function setupEventListeners() {}
+// =================== PLACEHOLDERS (Funções que faltavam) ===================
+function setupEventListeners() { }
 function showAgendarVisitaModal() { console.log("Função showAgendarVisitaModal chamada."); }
 function showTourVirtualModal() { console.log("Função showTourVirtualModal chamada."); }
 function closeModals() { console.log("Função closeModals chamada."); }
-
-/* =================================================================
-   2. CONFIGURAÇÃO E INICIALIZAÇÃO
-   ================================================================= */
 
 function setupForms() {
     const loginForm = document.getElementById('loginForm');
@@ -305,9 +304,6 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModals();
 });
 
-/* =================================================================
-   3. EXPORTS GLOBAIS (PARA O HTML)
-   ================================================================= */
 window.navigateTo = navigateTo;
 window.showAgendarVisitaModal = showAgendarVisitaModal;
 window.showTourVirtualModal = showTourVirtualModal;
