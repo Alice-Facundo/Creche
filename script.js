@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupForms();
     setupEventListeners();
     navigateTo('home');
+    carregarDadosFooter();
 });
 
 // =================== NAVEGAÇÃO ===================
@@ -317,40 +318,64 @@ async function carregarInfraestrutura() {
     }
 }
 
-// ================================ CARDAPIO =============================================
-async function carregarCardapio() {
-    const container = document.getElementById("cardapio-container");
-    // Mensagem inicial de carregamento
-    container.innerHTML = "<p>Carregando cardápio mais recente...</p>";
+// ================================ CONTATO =============================================
+async function carregarContato() {
+    const enderecoEl = document.getElementById("contato-endereco");
+    const telefoneEl = document.getElementById("contato-telefone");
+    const emailEl = document.getElementById("contato-email");
+    const horarioEl = document.getElementById("contato-horario");
 
     try {
-        // 1. Pega os metadados do cardápio mais recente para obter o ID
-        const resMeta = await fetch("https://crecheapi.onrender.com/cardapio/get_recente");
-        if (!resMeta.ok) throw new Error('Falha ao buscar metadados do cardápio.');
-        const cardapioMeta = await resMeta.json();
-        const cardapioId = cardapioMeta.id;
-        
-        // 2. Busca o arquivo PDF usando o ID obtido
-        const resPdf = await fetch(`https://crecheapi.onrender.com/cardapio/get_pdf_cardapio/${cardapioId}`);
-        if (!resPdf.ok) throw new Error('Falha ao carregar o arquivo PDF.');
+        const res = await fetch("https://crecheapi.onrender.com/creche/get");
+        if (!res.ok) {
+            throw new Error(`Erro na API: ${res.status}`);
+        }
+        const data = await res.json();
 
-        // 3. Converte a resposta em um Blob (arquivo binário)
-        const pdfBlob = await resPdf.blob();
+        if (enderecoEl) enderecoEl.textContent = data.endereco;
+        if (horarioEl) horarioEl.textContent = data.horario_funcionamento;
 
-        // 4. Cria uma URL temporária para o Blob
-        const pdfUrl = URL.createObjectURL(pdfBlob);
+        if (telefoneEl) {
+            const telLink = data.telefone.replace(/\D/g, '');
+            telefoneEl.innerHTML = `<a href="tel:+55${telLink}">${data.telefone}</a>`;
+        }
+        if (emailEl) {
+            emailEl.innerHTML = `<a href="mailto:${data.email}">${data.email}</a>`;
+        }
 
-        // 5. Cria um elemento <iframe> para exibir o PDF e o insere no container
-        container.innerHTML = `
-            <iframe 
-                src="${pdfUrl}" 
-                width="100%" 
-                height="800px" 
-                style="border: 1px solid #ccc; border-radius: 8px;"
-                title="Cardápio Semanal">
-            </iframe>
-        `;
-        
+    } catch (e) {
+        const errorMsg = "Não foi possível carregar as informações.";
+        if (enderecoEl) enderecoEl.textContent = errorMsg;
+        if (telefoneEl) telefoneEl.textContent = errorMsg;
+        if (emailEl) emailEl.textContent = errorMsg;
+        if (horarioEl) horarioEl.textContent = errorMsg;
+        console.error("Erro ao carregar dados de contato:", e);
+    }
+}
+
+// ================================ EQUIPE =============================================
+async function carregarEquipe() {
+    const container = document.getElementById("equipe-grid");
+    container.innerHTML = "<p>Carregando equipe...</p>";
+    try {
+        const res = await fetch("https://crecheapi.onrender.com/professor/get_all");
+        const equipe = await res.json();
+        container.innerHTML = "";
+        equipe.forEach(pessoa => {
+            const card = document.createElement("div");
+            card.className = "diferencial-card";
+            card.innerHTML = `
+                <div class="programa-image">
+                    <img src="${pessoa.foto}" alt="Foto do professor" style="border-radius: var(--radius-xl); width: 100%; height: 200px; object-fit: cover;">
+                </div>
+                <h3>${pessoa.nome}</h3>
+                <p><strong>Cargo:</strong> ${pessoa.cargo}</p>
+                <p>${pessoa.descricao}</p>
+                <p><strong>Email:</strong> <a href="mailto:${pessoa.email}">${pessoa.email}</a></p>
+                <p><strong>Telefone:</strong> <a href="tel:${pessoa.telefone}">${pessoa.telefone}</a></p>
+            `;
+            container.appendChild(card);
+        });
     } catch (e) {
         // Exibe uma mensagem de erro clara no container
         container.innerHTML = "<p style='color: red; text-align: center;'>Erro ao carregar o cardápio. Por favor, tente novamente mais tarde.</p>";
@@ -358,15 +383,25 @@ async function carregarCardapio() {
     }
 }
 
-
 // =================== OBSERVERS ===================
 const observer = new MutationObserver(mutations => {
     mutations.forEach(m => {
-        if (m.target.id === 'page-infraestrutura' && m.target.classList.contains('active')) carregarInfraestrutura();
-        if (m.target.id === 'page-equipe' && m.target.classList.contains('active')) carregarEquipe();
-        if (m.target.id === 'page-cardapio' && m.target.classList.contains('active')) carregarCardapio();
+        if (m.target.classList.contains('active')) {
+            switch (m.target.id) {
+                case 'page-infraestrutura':
+                    carregarInfraestrutura();
+                    break;
+                case 'page-equipe':
+                    carregarEquipe();
+                    break;
+                case 'page-contato':
+                    carregarContato();
+                    break;
+            }
+        }
     });
 });
+
 observer.observe(document.getElementById('page-infraestrutura'), { attributes: true });
 observer.observe(document.getElementById('page-equipe'), { attributes: true });
 observer.observe(document.getElementById('page-cardapio'), { attributes: true });
