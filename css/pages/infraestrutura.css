@@ -78,3 +78,14 @@
     font-size: 1.125rem;
     color: var(--gray-700);
 }
+
+.novo-infra-container {
+    grid-column: 1 / -1; 
+  
+    /* Centraliza o botão dentro do contêiner */
+    display: flex;
+    justify-content: center;
+    
+    /* Adiciona um espaçamento acima do botão */
+    padding-top: var(--spacing-8);
+}

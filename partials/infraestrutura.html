@@ -7,4 +7,26 @@
     </div>
     <div id="infraestrutura-grid" class="diferenciais-grid"></div>
   </div>
+
+  <div id="infra-foto-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-content">
+          <header class="modal-header">
+              <h2 id="infra-modal-title">Adicionar Nova Foto</h2>
+              <button class="modal-close-btn" onclick="fecharModalAdicionarFotoInfra()">&times;</button>
+          </header>
+          <main class="modal-body">
+              <form id="infra-foto-form">
+                  <div class="form-group">
+                      <label for="infra-foto-arquivo">Selecione o arquivo da foto *</label>
+                      <input type="file" id="infra-foto-arquivo" name="foto" accept="image/*" required>
+                  </div>
+
+                  <footer class="modal-footer">
+                      <button type="button" class="btn-secondary" onclick="fecharModalAdicionarFotoInfra()">Cancelar</button>
+                      <button type="submit" id="btn-salvar-infra-foto" class="btn-primary">Salvar Foto</button>
+                  </footer>
+              </form>
+          </main>
+      </div>
+  </div>
 </div>

@@ -128,21 +128,23 @@ export function togglePasswordVisibility() {
 
 export async function fetchAutenticado(url, options = {}) {
     const token = localStorage.getItem('creche_token');
-
     if (!token) {
         console.error("Nenhum token de autenticação encontrado. Faça o login primeiro.");
-        window.navigateTo('admin');
+        navigateTo('admin');
         return Promise.reject(new Error("Token não encontrado."));
     }
 
     const headers = {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
         ...options.headers,
     };
 
+    if (!(options.body instanceof FormData)) {
+        headers['Content-Type'] = 'application/json';
+    }
+
     return fetch(url, {
-        ...options, 
-        headers,  
+        ...options,
+        headers,
     });
 }

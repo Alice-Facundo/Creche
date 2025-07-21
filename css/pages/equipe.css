@@ -1,3 +1,9 @@
+.admin-actions {
+    display: flex;
+    gap: 8px; /* Espaço entre os botões */
+    margin-top: 8px;
+}
+
 .diferenciais-grid {
     display: grid;
     gap: var(--spacing-8);
@@ -59,4 +65,98 @@
 
 .diferencial-card strong {
     color: var(--gray-900);
+}
+
+
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1rem;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: var(--spacing-4) var(--spacing-6);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--gray-400);
+    line-height: 1;
+}
+
+.modal-body {
+    padding: var(--spacing-6);
+    overflow-y: auto;
+}
+
+.modal-body .form-group {
+    margin-bottom: var(--spacing-4);
+}
+
+.modal-body .form-group label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: 500;
+}
+
+.modal-body .form-group input,
+.modal-body .form-group textarea {
+    width: 100%;
+    padding: var(--spacing-3);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+.modal-footer {
+    padding: var(--spacing-4) var(--spacing-6);
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-4);
+}
+
+.novo-professor-container {
+  grid-column: 1 / -1; 
+  
+  /* Centraliza o botão dentro do contêiner */
+  display: flex;
+  justify-content: center;
+  
+  /* Adiciona um espaçamento acima do botão */
+  padding-top: var(--spacing-8);
 }

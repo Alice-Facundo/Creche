@@ -15,5 +15,4 @@ export function isMobile() {
 }
 
 export function adjustLayoutForViewport() {
-    // Implemente se necessário
 }

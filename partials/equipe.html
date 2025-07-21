@@ -7,4 +7,54 @@
     </div>
     <div id="equipe-grid" class="diferenciais-grid"></div>
   </div>
+
+<div id="professor-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h2 id="modal-title">Adicionar Professor</h2>
+            <button class="modal-close-btn" onclick="fecharModalProfessor()">&times;</button>
+        </header>
+        <main class="modal-body">
+            <form id="professor-form">
+                <input type="hidden" id="professor-id">
+
+                <div class="form-group">
+                    <label for="professor-nome">Nome Completo *</label>
+                    <input type="text" id="professor-nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="professor-cargo">Cargo *</label>
+                    <input type="text" id="professor-cargo" name="cargo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="professor-email">Email</label>
+                    <input type="email" id="professor-email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="professor-descricao">Descrição *</label>
+                    <textarea id="professor-descricao" name="descricao" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="professor-foto">Foto *</label>
+                    <input type="file" id="professor-foto" name="foto" accept="image/*">
+                </div>
+
+                <footer class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="fecharModalProfessor()">Cancelar</button>
+                    <button type="submit" id="btn-salvar-professor" class="btn-primary">Salvar</button>
+                </footer>
+            </form>
+        </main>
+    </div>
 </div>
+
+
+<script>
+  const form = document.getElementById('professor-form');
+  const formData = new FormData(form);
+</script>
+

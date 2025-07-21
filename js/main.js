@@ -1,12 +1,28 @@
-import { navigateTo, updateActiveNavigation, updateFooterVisibility } from './navegacao.js';
+// =================== IMPORTS DOS MÓDULOS ===================
+import { navigateTo } from './navegacao.js';
 import { updateLoginStatus, handleAdminLogin, handleHeaderAdminClick, togglePasswordVisibility } from './auth.js';
-import { carregarEquipe, apagarProfessor, atualizarProfessor, criarProfessor, abrirModalAtualizarProfessor, abrirModalNovoProfessor } from './equipe.js';
-import { carregarInfraestrutura } from './infraestrutura.js';
-import { carregarCardapio } from './cardapio.js';
+import { 
+    carregarEquipe, 
+    apagarProfessor, 
+    abrirModalAtualizarProfessor, 
+    abrirModalNovoProfessor,
+    fecharModalProfessor 
+} from './equipe.js';
+import { 
+    carregarInfraestrutura, 
+    abrirModalAdicionarFotoInfra, 
+    fecharModalAdicionarFotoInfra 
+} from './infraestrutura.js';
+
+import { 
+    carregarCardapio, 
+    abrirModalAdicionarCardapio, 
+    fecharModalAdicionarCardapio 
+} from './cardapio.js';
 import { carregarContato, carregarDadosFooter } from './contato.js';
 import { debounce, adjustLayoutForViewport } from './utils.js';
 
-// Inicialização principal
+// =================== INICIALIZAÇÃO PRINCIPAL ===================
 document.addEventListener('DOMContentLoaded', function() {
     if (window.lucide) lucide.createIcons();
     setupForms();
@@ -18,14 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
     navigateTo('home');
 });
 
+// =================== CONFIGURAÇÕES (SETUP) ===================
 function setupForms() {
     const loginForm = document.getElementById('loginForm');
     if (loginForm) loginForm.addEventListener('submit', handleAdminLogin);
 
     const passwordToggle = document.querySelector('.password-toggle');
     if (passwordToggle) passwordToggle.addEventListener('click', togglePasswordVisibility);
-
-    // Adicione outros forms se necessário
 }
 
 function setupEventListeners() {
@@ -56,19 +71,19 @@ function setupObservers() {
     });
 }
 
-// Listeners globais
 window.addEventListener('resize', debounce(adjustLayoutForViewport, 250));
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModals();
+    if (e.key === 'Escape') fecharModalProfessor(); 
 });
 
-// Exponha funções globais se necessário
 window.navigateTo = navigateTo;
 window.abrirModalAtualizarProfessor = abrirModalAtualizarProfessor;
 window.abrirModalNovoProfessor = abrirModalNovoProfessor;
-
-function closeModals() {
-    // Implemente se necessário
-}
+window.fecharModalProfessor = fecharModalProfessor;
+window.apagarProfessor = apagarProfessor;
+window.abrirModalAdicionarFotoInfra = abrirModalAdicionarFotoInfra;
+window.fecharModalAdicionarFotoInfra = fecharModalAdicionarFotoInfra;
+window.abrirModalAdicionarCardapio = abrirModalAdicionarCardapio;
+window.fecharModalAdicionarCardapio = fecharModalAdicionarCardapio;
 
 console.log('Sistema inicializado com sucesso!');

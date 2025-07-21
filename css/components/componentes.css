@@ -115,6 +115,27 @@
     display: block;
 }
 
+.btn-primary#btn-apagar-prof {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.btn-primary#btn-apagar-prof:hover {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+.btn-primary#btn-att-prof {
+    background: var(--danger-light);
+    color: var(--danger);
+
+}
+
+.btn-primary#btn-att-prof:hover {
+    background: var(--danger);
+    color: var(--white);
+}
+
 /* Badges */
 .badge {
     display: inline-flex;
